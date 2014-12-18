@@ -1,9 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
-# Function to cache inverse of Matrix
+# Function returns a list of functions which can be used to set/get data either to/from cache
 makeCacheMatrix <- function(x = matrix()) {
 	m <- NULL # creating a variable m in global environment
 	set <- function(y){ # This function is used to set matrix direction
@@ -16,17 +11,16 @@ makeCacheMatrix <- function(x = matrix()) {
 		x
 		}
 	setInv <- function(inv) {# Store Inverse to cache
-		m <<- inv
+		m <<- inv # Storing data to variable in global environment
 		}
-	getInv <- function(){
+	getInv <- function(){ # Retrive from Cache
 		m
 		}
 	list (set = set, get = get, setInv = setInv, getInv = getInv)
 }
 
-
-## Write a short comment describing this function
-
+# Function returns inverse of Matrix.
+# Expects matrix as input.
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         m <- x$getInv()
